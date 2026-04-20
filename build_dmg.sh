@@ -26,7 +26,8 @@ mkdir -p "${APP_DIR}/Contents/MacOS"
 # 3. Copy binary
 cp "${BUILD_DIR}/${APP_NAME}" "${APP_DIR}/Contents/MacOS/"
 
-# 4. Create Info.plist
+# 4. Create Info.plist (Enhanced)
+echo "📝 Generating Info.plist..."
 cat <<PLIST > "${APP_DIR}/Contents/Info.plist"
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
@@ -38,14 +39,45 @@ cat <<PLIST > "${APP_DIR}/Contents/Info.plist"
     <string>${BUNDLE_ID}</string>
     <key>CFBundleName</key>
     <string>${APP_NAME}</string>
+    <key>CFBundleDisplayName</key>
+    <string>${APP_NAME}</string>
     <key>CFBundlePackageType</key>
     <string>APPL</string>
     <key>CFBundleShortVersionString</key>
     <string>1.0</string>
+    <key>CFBundleVersion</key>
+    <string>1</string>
     <key>LSMinimumSystemVersion</key>
     <string>14.0</string>
     <key>NSHighResolutionCapable</key>
     <true/>
+    <key>NSHumanReadableCopyright</key>
+    <string>Copyright © 2026 QuickGif Contributors. MIT License.</string>
+    <key>CFBundleDocumentTypes</key>
+    <array>
+        <dict>
+            <key>CFBundleTypeName</key>
+            <string>Video Files</string>
+            <key>LSHandlerRank</key>
+            <string>Default</string>
+            <key>LSItemContentTypes</key>
+            <array>
+                <string>public.mpeg-4</string>
+                <string>com.apple.quicktime-movie</string>
+            </array>
+        </dict>
+        <dict>
+            <key>CFBundleTypeName</key>
+            <string>Image Files</string>
+            <key>LSHandlerRank</key>
+            <string>Default</string>
+            <key>LSItemContentTypes</key>
+            <array>
+                <string>public.jpeg</string>
+                <string>public.png</string>
+            </array>
+        </dict>
+    </array>
 </dict>
 </plist>
 PLIST
@@ -65,7 +97,4 @@ hdiutil create -volname "${APP_NAME} Installer" -srcfolder "${TEMP_DMG_DIR}" -ov
 
 # 7. Cleanup
 rm -rf "${TEMP_DMG_DIR}"
-echo "✅ Done! ${DMG_NAME} created on your desktop."
-EOF
-
-chmod +x build_dmg.sh
+echo "✅ Done! ${DMG_NAME} created."

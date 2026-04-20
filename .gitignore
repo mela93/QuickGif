@@ -1,1 +1,17 @@
-.build
+# Swift Package Manager
+.build/
+.swiftpm/
+
+# macOS binary/package outputs
+*.app/
+*.dmg
+*.pkg
+
+# macOS system files
+.DS_Store
+
+# Xcode files (if you ever use Xcode)
+*.xcodeproj/
+*.xcworkspace/
+xcuserdata/
+DerivedData/
