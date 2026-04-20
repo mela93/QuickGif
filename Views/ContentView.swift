@@ -1,18 +1,10 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject private var viewModel = ConversionViewModel()
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("GIF Generator")
-        }
-        .padding()
-        .frame(width: 400, height: 300)
+        DropZoneView(viewModel: viewModel)
+            .frame(width: 300, height: 200)
     }
-}
-
-#Preview {
-    ContentView()
 }
