@@ -1,15 +1,15 @@
 # 🟢 QuickGif
 
-![License: MIT](https://img.shields.io/badge/License-MIT-00FF41?style=for-the-badge&logo=opensourceinitiative&logoColor=black)
-![Platform: macOS](https://img.shields.io/badge/Platform-macOS_14+-00F0FF?style=for-the-badge&logo=apple&logoColor=black)
-![Swift: 5.9](https://img.shields.io/badge/Swift-5.9-F05138?style=for-the-badge&logo=swift&logoColor=white)
+![License: MIT](https://img.shields.io/badge/License-MIT-00FF41?style=flat-square&logo=opensourceinitiative&logoColor=black)
+![Platform: macOS](https://img.shields.io/badge/Platform-macOS_14+-00F0FF?style=flat-square&logo=apple&logoColor=black)
+![Swift: 5.9](https://img.shields.io/badge/Swift-5.10+-F05138?style=flat-square&logo=swift&logoColor=white)
 
 一款专为 macOS 设计的极简赛博风 GIF 转换工具。
 
 > **"Drag. Drop. Done."**
 
 ## 🔗 开源说明
-- **托管平台**: [GitHub](https://github.com/yourusername/QuickGif)
+- **托管平台**: [GitHub](https://github.com/mela93/QuickGif)
 - **开源协议**: MIT License
 
 ## ✨ 特性 (Features)

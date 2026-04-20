@@ -31,7 +31,7 @@ echo "${NEXT_BUILD}" > "${BUILD_NUMBER_FILE}"
 
 BUILD_DIR=".build/release"
 APP_DIR="${APP_NAME}.app"
-DMG_NAME="${APP_NAME}_v${VERSION}_b${BUILD_NUMBER}_Installer.dmg"
+DMG_NAME="${APP_NAME}_v${VERSION}_b${BUILD_NUMBER}.dmg"
 TEMP_DMG_DIR="temp_dmg_folder"
 ICON_NAME="AppIcon.icns"
 
