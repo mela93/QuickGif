@@ -23,10 +23,10 @@ struct GIFGeneratorApp: App {
                     NSApplication.shared.orderFrontStandardAboutPanel(
                         options: [
                             NSApplication.AboutPanelOptionKey.credits: NSAttributedString(
-                                string: "A lightweight cyber-terminal style GIF generator.\n\nGitHub: https://github.com/yourusername/QuickGif\nLicense: MIT",
+                                string: "A lightweight cyber-terminal style GIF generator.\n\nGitHub: https://github.com/mela93/QuickGif\nLicense: MIT",
                                 attributes: [
                                     .font: NSFont.monospacedSystemFont(ofSize: 11, weight: .regular),
-                                    .foregroundColor: NSColor(red: 0.22, green: 1.0, blue: 0.08, alpha: 1.0)
+                                    // .foregroundColor: NSColor(red: 0.22, green: 1.0, blue: 0.08, alpha: 1.0)
                                 ]
                             ),
                             NSApplication.AboutPanelOptionKey(rawValue: "Copyright"): "© 2026 QuickGif Contributors"

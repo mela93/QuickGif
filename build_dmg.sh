@@ -1,13 +1,18 @@
 #!/bin/bash
 
+# --- 配置区 ---
 APP_NAME="QuickGif"
+VERSION="1.0.0"
 BUNDLE_ID="com.cyber.QuickGif"
+# --------------
+
 BUILD_DIR=".build/release"
 APP_DIR="${APP_NAME}.app"
-DMG_NAME="${APP_NAME}_Installer.dmg"
+DMG_NAME="${APP_NAME}_v${VERSION}.dmg"
 TEMP_DMG_DIR="temp_dmg_folder"
+ICON_NAME="AppIcon.icns"
 
-echo "🚀 Starting build process for ${APP_NAME}..."
+echo "🚀 Starting build process for ${APP_NAME} v${VERSION}..."
 
 # 1. Build Swift project
 echo "📦 Compiling Swift project in release mode..."
@@ -22,12 +27,19 @@ fi
 echo "📂 Creating .app structure..."
 rm -rf "${APP_DIR}"
 mkdir -p "${APP_DIR}/Contents/MacOS"
+mkdir -p "${APP_DIR}/Contents/Resources"
 
-# 3. Copy binary
+# 3. Copy binary and icon
 cp "${BUILD_DIR}/${APP_NAME}" "${APP_DIR}/Contents/MacOS/"
+if [ -f "${ICON_NAME}" ]; then
+    cp "${ICON_NAME}" "${APP_DIR}/Contents/Resources/"
+    echo "🎨 AppIcon included."
+else
+    echo "⚠️ Warning: ${ICON_NAME} not found. App will not have a custom icon."
+fi
 
-# 4. Create Info.plist (Enhanced)
-echo "📝 Generating Info.plist..."
+# 4. Create Info.plist
+echo "📝 Generating Info.plist with version ${VERSION}..."
 cat <<PLIST > "${APP_DIR}/Contents/Info.plist"
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
@@ -41,10 +53,12 @@ cat <<PLIST > "${APP_DIR}/Contents/Info.plist"
     <string>${APP_NAME}</string>
     <key>CFBundleDisplayName</key>
     <string>${APP_NAME}</string>
+    <key>CFBundleIconFile</key>
+    <string>${ICON_NAME}</string>
     <key>CFBundlePackageType</key>
     <string>APPL</string>
     <key>CFBundleShortVersionString</key>
-    <string>1.0</string>
+    <string>${VERSION}</string>
     <key>CFBundleVersion</key>
     <string>1</string>
     <key>LSMinimumSystemVersion</key>
@@ -86,7 +100,7 @@ PLIST
 chmod +x "${APP_DIR}/Contents/MacOS/${APP_NAME}"
 
 # 6. Create DMG
-echo "💿 Creating DMG installer..."
+echo "💿 Creating DMG installer: ${DMG_NAME}..."
 rm -rf "${TEMP_DMG_DIR}"
 rm -f "${DMG_NAME}"
 mkdir -p "${TEMP_DMG_DIR}"

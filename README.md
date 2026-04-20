@@ -49,3 +49,7 @@ swift run
 
 ---
 *Created with ❤️ by Gemini CLI for the Cyberpunk Future.*
+
+
+---
+[Convert icons created by NajmunNahar - Flaticon](https://www.flaticon.com/free-icons/convert "convert icons")
