@@ -108,7 +108,7 @@ git commit -m "feat: add unique file naming logic"
 **Files:**
 - Create: `ViewModels/ConversionViewModel.swift`
 
-- [ ] **Step 1: 定义状态与接口**
+- [x] **Step 1: 定义状态与接口**
 
 ```swift
 import SwiftUI
@@ -129,7 +129,7 @@ class ConversionViewModel: ObservableObject {
 }
 ```
 
-- [ ] **Step 2: 实现帧提取与编码逻辑**
+- [x] **Step 2: 实现帧提取与编码逻辑**
 
 ```swift
 // In ViewModels/ConversionViewModel.swift
@@ -158,7 +158,7 @@ func convert(videoURL: URL) {
 }
 ```
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add ViewModels/ConversionViewModel.swift
